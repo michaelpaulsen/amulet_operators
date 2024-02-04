@@ -6,6 +6,7 @@
 from amulet.api.selection import SelectionGroup
 from amulet.api.level import BaseLevel
 from amulet.api.data_types import Dimension
+from amulet.api.block import Block
 
 #the supported gameversion 
 game_version = ("java", (1, 20, 2 ))
