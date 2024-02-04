@@ -13,7 +13,7 @@ game_version = ("java", (1, 20, 2 ))
 grass_block = Block("minecraft", "grass_block")
 dirt = Block("minecraft", "dirt")
 stone = Block("minecraft", "stone")
-def get_block_and_block_above(level, dim x,y,z):
+def get_block_and_block_above(level, dim, x,y,z):
     block, block_entity = level.get_version_block( x,y,z, dim, game_version)
     block1, block_entity1 = level.get_version_block( x,y+1,z,dim,game_version)
     return block, block1
@@ -42,21 +42,15 @@ def operator(
             ban = block_above.base_name
             bln = block.base_name
             if bln == "sand":
-                #print(ban, bln)
                 if ban == "air": 
                    set_grass_piller(world, dimension,x,y,z) 
                 else: 
                     level.set_version_block( x,y,z,dimension,game_version, grass_block)
-                
-    #world.save()
-
-    # close the world
-                
             
     print("\n\n\n\nending operator")
     print("===-===")
 
-export = {  # This is what the program will actually look for. It describes how the operation will work
-    "name": "test",  # the name of the plugin
-    "operation": operation,  # the actual function to call when running the plugin
+export = {  
+    "name": "test",  
+    "operation": operation,
 }
